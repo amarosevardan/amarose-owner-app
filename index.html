@@ -39,6 +39,16 @@
       color:#5a6672;
       font-size:12px;
     }
+    .lang-select{
+      width:120px;
+      padding:12px 10px;
+      border-radius:14px;
+      border:1px solid #d7dce3;
+      background:#fff;
+      color:#4b5563;
+      font-weight:700;
+      font-size:12px;
+    }
 
     h1{
       text-align:center;
@@ -59,4 +69,564 @@
       border-radius:24px;
       padding:18px;
       margin-bottom:18px;
-      box-shadow:0
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+    }
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:4px;
+      color:#8a94a1;
+      font-weight:700;
+      margin-bottom:12px;
+      text-transform:uppercase;
+    }
+    .title{
+      font-size:22px;
+      font-weight:800;
+      line-height:1.2;
+      margin-bottom:10px;
+      color:#2f3a45;
+    }
+    .text{
+      color:#6b7280;
+      line-height:1.55;
+      font-size:16px;
+    }
+
+    .btn{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      font-size:17px;
+      font-weight:800;
+      margin-top:14px;
+      cursor:pointer;
+    }
+    .primary{
+      background:#4b5563;
+      color:#fff;
+    }
+    .secondary{
+      background:#fff;
+      color:#4b5563;
+      border:1px solid #d1d5db;
+    }
+    .danger{
+      background:#dc2626;
+      color:#fff;
+    }
+
+    .section{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin:22px 0 14px;
+      gap:10px;
+    }
+    .section h2{font-size:22px;color:#2f3a45}
+    .section span{color:#8a94a1}
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .stat{
+      background:#fff;
+      border:1px solid #d7dce3;
+      border-radius:20px;
+      padding:16px;
+    }
+    .stat-num{
+      font-size:28px;
+      font-weight:800;
+      color:#374151;
+    }
+    .stat-label{
+      margin-top:6px;
+      color:#6b7280;
+      font-size:14px;
+    }
+
+    .list{
+      background:#fff;
+      border:1px solid #d7dce3;
+      border-radius:22px;
+      padding:16px;
+      margin-bottom:12px;
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .item-title{
+      font-size:18px;
+      font-weight:800;
+      color:#2f3a45;
+    }
+    .item-sub{
+      color:#6b7280;
+      line-height:1.5;
+      margin-top:6px;
+    }
+    .status{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:12px;
+      margin-top:10px;
+    }
+    .pending{background:#fef3c7;color:#92400e}
+    .approved{background:#dcfce7;color:#166534}
+    .rejected{background:#fee2e2;color:#991b1b}
+    .blocked{background:#e5e7eb;color:#374151}
+
+    .doc-box{
+      background:#f8fafc;
+      border:1px dashed #cbd5e1;
+      border-radius:16px;
+      padding:14px;
+      margin-top:10px;
+      color:#475569;
+      font-size:14px;
+    }
+
+    .nav{
+      position:fixed;
+      left:0;right:0;bottom:0;
+      background:#fff;
+      border-top:1px solid #d7dce3;
+      padding:10px 12px;
+    }
+    .navin{
+      max-width:480px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:8px;
+    }
+    .navbtn{
+      background:#f8fafc;
+      border:1px solid #d7dce3;
+      border-radius:16px;
+      text-align:center;
+      color:#6b7280;
+      font-size:13px;
+      padding:10px 6px;
+      cursor:pointer;
+    }
+    .navbtn.active{
+      background:#eceff3;
+      color:#374151;
+      font-weight:800;
+      border-color:#9ca3af;
+    }
+
+    @media(max-width:430px){
+      .stats{grid-template-columns:repeat(2,1fr)}
+      h1{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="screen active" id="home">
+      <div class="topbar">
+        <div class="pill">AMAROSE OWNER</div>
+        <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
+          <option value="EN">English</option>
+          <option value="RU">Русский</option>
+          <option value="HY">Հայերեն</option>
+        </select>
+      </div>
+
+      <h1 id="tOwner">OWNER</h1>
+      <div class="sub" id="tSub">Control sellers, applications, products and payments</div>
+
+      <div class="card">
+        <div class="eyebrow" id="tOverview">OVERVIEW</div>
+        <div class="title" id="tMainTitle">Owner control panel</div>
+        <div class="text" id="tMainText">Review seller applications, inspect documents, approve or reject access, moderate products, and manage platform finance.</div>
+      </div>
+
+      <div class="section">
+        <h2 id="tStats">Platform stats</h2>
+        <span id="tLive">Live overview</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">24</div>
+          <div class="stat-label" id="sApplications">Applications</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">17</div>
+          <div class="stat-label" id="sSellers">Active sellers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">63</div>
+          <div class="stat-label" id="sProducts">Products</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">€2,840</div>
+          <div class="stat-label" id="sRevenue">Platform revenue</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen" id="applications">
+      <div class="section">
+        <h2 id="tApplications">Applications</h2>
+        <span id="tPending">Pending review</span>
+      </div>
+
+      <div class="list">
+        <div class="row">
+          <div>
+            <div class="item-title">Anna Petrosyan</div>
+            <div class="item-sub">Seller type: Individual</div>
+            <div class="item-sub">Country: Armenia</div>
+          </div>
+          <div class="status pending" id="statusPending1">Pending</div>
+        </div>
+        <button class="btn primary" onclick="showScreen('documents')">Open Documents</button>
+        <button class="btn secondary" onclick="alert('Approved')">Approve</button>
+        <button class="btn danger" onclick="alert('Rejected')">Reject</button>
+      </div>
+
+      <div class="list">
+        <div class="row">
+          <div>
+            <div class="item-title">Luna Style LLC</div>
+            <div class="item-sub">Seller type: Company</div>
+            <div class="item-sub">Country: Spain</div>
+          </div>
+          <div class="status pending" id="statusPending2">Pending</div>
+        </div>
+        <button class="btn primary" onclick="showScreen('documents')">Open Documents</button>
+        <button class="btn secondary" onclick="alert('Approved')">Approve</button>
+        <button class="btn danger" onclick="alert('Rejected')">Reject</button>
+      </div>
+    </div>
+
+    <div class="screen" id="documents">
+      <div class="section">
+        <h2 id="tDocuments">Documents Review</h2>
+        <span id="tManual">Manual check</span>
+      </div>
+
+      <div class="list">
+        <div class="item-title" id="tSellerProfile">Seller profile</div>
+        <div class="item-sub">Name: Anna Petrosyan</div>
+        <div class="item-sub">Type: Individual</div>
+        <div class="item-sub">Phone: +374 44 944 442</div>
+        <div class="item-sub">Email: anna@example.com</div>
+
+        <div class="doc-box" id="tDoc1">Identity document attached</div>
+        <div class="doc-box" id="tDoc2">Selfie with document attached</div>
+        <div class="doc-box" id="tDoc3">Payment details attached</div>
+
+        <button class="btn secondary" onclick="alert('Document approved')">Approve Documents</button>
+        <button class="btn danger" onclick="alert('Document rejected')">Reject Documents</button>
+      </div>
+    </div>
+
+    <div class="screen" id="sellers">
+      <div class="section">
+        <h2 id="tSellerMgmt">Sellers</h2>
+        <span id="tAllSellers">All accounts</span>
+      </div>
+
+      <div class="list">
+        <div class="row">
+          <div>
+            <div class="item-title">Anna Petrosyan</div>
+            <div class="item-sub">Basic plan • Armenia</div>
+          </div>
+          <div class="status approved" id="statusApproved1">Approved</div>
+        </div>
+        <button class="btn secondary" onclick="alert('Seller blocked')">Block Seller</button>
+      </div>
+
+      <div class="list">
+        <div class="row">
+          <div>
+            <div class="item-title">Luna Style LLC</div>
+            <div class="item-sub">Pro plan • Spain</div>
+          </div>
+          <div class="status approved" id="statusApproved2">Approved</div>
+        </div>
+        <button class="btn secondary" onclick="alert('Seller blocked')">Block Seller</button>
+      </div>
+    </div>
+
+    <div class="screen" id="products">
+      <div class="section">
+        <h2 id="tProductsTitle">Product moderation</h2>
+        <span id="tReviewQueue">Review queue</span>
+      </div>
+
+      <div class="list">
+        <div class="item-title">Rose Glow Set</div>
+        <div class="item-sub">Seller: Anna Petrosyan</div>
+        <div class="item-sub">Category: Beauty</div>
+        <button class="btn secondary" onclick="alert('Product approved')">Approve Product</button>
+        <button class="btn danger" onclick="alert('Product rejected')">Reject Product</button>
+      </div>
+
+      <div class="list">
+        <div class="item-title">Pink Elegance Bag</div>
+        <div class="item-sub">Seller: Luna Style LLC</div>
+        <div class="item-sub">Category: Bags</div>
+        <button class="btn secondary" onclick="alert('Product approved')">Approve Product</button>
+        <button class="btn danger" onclick="alert('Product rejected')">Reject Product</button>
+      </div>
+    </div>
+
+    <div class="screen" id="orders">
+      <div class="section">
+        <h2 id="tOrders">Orders</h2>
+        <span id="tTransactions">Transactions</span>
+      </div>
+
+      <div class="list">
+        <div class="item-title">#1024</div>
+        <div class="item-sub">Seller: Anna Petrosyan</div>
+        <div class="item-sub">Amount: €29</div>
+        <div class="status approved" id="statusCompleted1">Completed</div>
+      </div>
+
+      <div class="list">
+        <div class="item-title">#1025</div>
+        <div class="item-sub">Seller: Luna Style LLC</div>
+        <div class="item-sub">Amount: €59</div>
+        <div class="status pending" id="statusProcessing1">Processing</div>
+      </div>
+    </div>
+
+    <div class="screen" id="finance">
+      <div class="section">
+        <h2 id="tFinance">Finance</h2>
+        <span id="tCommission">Commission</span>
+      </div>
+
+      <div class="list">
+        <div class="item-title" id="tBasicPlan">Basic plan</div>
+        <div class="item-sub">7% platform commission</div>
+      </div>
+
+      <div class="list">
+        <div class="item-title" id="tProPlan">Pro plan</div>
+        <div class="item-sub">€19 monthly + 5% commission</div>
+      </div>
+
+      <div class="list">
+        <div class="item-title" id="tPayouts">Pending payouts</div>
+        <div class="item-sub">Total seller payouts: €1,140</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav">
+    <div class="navin">
+      <div class="navbtn active" onclick="setNav(this);showScreen('home')" id="nHome">Home</div>
+      <div class="navbtn" onclick="setNav(this);showScreen('applications')" id="nApplications">Applications</div>
+      <div class="navbtn" onclick="setNav(this);showScreen('sellers')" id="nSellers">Sellers</div>
+      <div class="navbtn" onclick="setNav(this);showScreen('finance')" id="nFinance">Finance</div>
+    </div>
+  </div>
+
+  <script>
+    if (window.Telegram && window.Telegram.WebApp) {
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+    }
+
+    function showScreen(id){
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      const el = document.getElementById(id);
+      if (el) el.classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function setNav(el){
+      document.querySelectorAll('.navbtn').forEach(n => n.classList.remove('active'));
+      if (el) el.classList.add('active');
+    }
+
+    const texts = {
+      EN: {
+        owner:"OWNER",
+        sub:"Control sellers, applications, products and payments",
+        overview:"OVERVIEW",
+        mainTitle:"Owner control panel",
+        mainText:"Review seller applications, inspect documents, approve or reject access, moderate products, and manage platform finance.",
+        stats:"Platform stats",
+        live:"Live overview",
+        applications:"Applications",
+        sellers:"Active sellers",
+        products:"Products",
+        revenue:"Platform revenue",
+        applicationsTitle:"Applications",
+        pending:"Pending review",
+        documents:"Documents Review",
+        manual:"Manual check",
+        sellerProfile:"Seller profile",
+        doc1:"Identity document attached",
+        doc2:"Selfie with document attached",
+        doc3:"Payment details attached",
+        sellerMgmt:"Sellers",
+        allSellers:"All accounts",
+        productsTitle:"Product moderation",
+        reviewQueue:"Review queue",
+        orders:"Orders",
+        transactions:"Transactions",
+        finance:"Finance",
+        commission:"Commission",
+        basicPlan:"Basic plan",
+        proPlan:"Pro plan",
+        payouts:"Pending payouts",
+        navHome:"Home",
+        navApplications:"Applications",
+        navSellers:"Sellers",
+        navFinance:"Finance",
+        pendingText:"Pending",
+        approvedText:"Approved",
+        completedText:"Completed",
+        processingText:"Processing"
+      },
+      RU: {
+        owner:"ВЛАДЕЛЕЦ",
+        sub:"Управление продавцами, заявками, товарами и оплатами",
+        overview:"ОБЗОР",
+        mainTitle:"Панель владельца",
+        mainText:"Проверяйте заявки продавцов, документы, одобряйте или отклоняйте доступ, модерируйте товары и управляйте финансами платформы.",
+        stats:"Статистика платформы",
+        live:"Общий обзор",
+        applications:"Заявки",
+        sellers:"Активные продавцы",
+        products:"Товары",
+        revenue:"Доход платформы",
+        applicationsTitle:"Заявки",
+        pending:"Ожидают проверки",
+        documents:"Проверка документов",
+        manual:"Ручная проверка",
+        sellerProfile:"Профиль продавца",
+        doc1:"Документ личности прикреплён",
+        doc2:"Селфи с документом прикреплено",
+        doc3:"Платёжные данные прикреплены",
+        sellerMgmt:"Продавцы",
+        allSellers:"Все аккаунты",
+        productsTitle:"Модерация товаров",
+        reviewQueue:"Очередь проверки",
+        orders:"Заказы",
+        transactions:"Транзакции",
+        finance:"Финансы",
+        commission:"Комиссия",
+        basicPlan:"Базовый тариф",
+        proPlan:"Pro тариф",
+        payouts:"Ожидающие выплаты",
+        navHome:"Главная",
+        navApplications:"Заявки",
+        navSellers:"Продавцы",
+        navFinance:"Финансы",
+        pendingText:"Ожидает",
+        approvedText:"Одобрено",
+        completedText:"Завершено",
+        processingText:"В обработке"
+      },
+      HY: {
+        owner:"ՍԵՓԱԿԱՆԱՏԵՐ",
+        sub:"Կառավարիր վաճառողներին, հայտերը, ապրանքներն ու վճարումները",
+        overview:"ՏԵՍՈՒԹՅՈՒՆ",
+        mainTitle:"Սեփականատիրոջ վահանակ",
+        mainText:"Ստուգիր վաճառողների հայտերը, փաստաթղթերը, հաստատիր կամ մերժիր մուտքը, վերահսկիր ապրանքներն ու ֆինանսները։",
+        stats:"Պլատֆորմի վիճակագրություն",
+        live:"Ընդհանուր պատկեր",
+        applications:"Հայտեր",
+        sellers:"Ակտիվ վաճառողներ",
+        products:"Ապրանքներ",
+        revenue:"Պլատֆորմի եկամուտ",
+        applicationsTitle:"Հայտեր",
+        pending:"Սպասում է ստուգման",
+        documents:"Փաստաթղթերի ստուգում",
+        manual:"Ձեռքով ստուգում",
+        sellerProfile:"Վաճառողի պրոֆիլ",
+        doc1:"Անձը հաստատող փաստաթուղթը կցված է",
+        doc2:"Սելֆին փաստաթղթով կցված է",
+        doc3:"Վճարման տվյալները կցված են",
+        sellerMgmt:"Վաճառողներ",
+        allSellers:"Բոլոր հաշիվները",
+        productsTitle:"Ապրանքների մոդերացիա",
+        reviewQueue:"Ստուգման հերթ",
+        orders:"Պատվերներ",
+        transactions:"Գործարքներ",
+        finance:"Ֆինանսներ",
+        commission:"Միջնորդավճար",
+        basicPlan:"Basic սակագին",
+        proPlan:"Pro սակագին",
+        payouts:"Սպասվող վճարումներ",
+        navHome:"Գլխավոր",
+        navApplications:"Հայտեր",
+        navSellers:"Վաճառողներ",
+        navFinance:"Ֆինանսներ",
+        pendingText:"Սպասման մեջ",
+        approvedText:"Հաստատված",
+        completedText:"Ավարտված",
+        processingText:"Մշակման մեջ"
+      }
+    };
+
+    function setLang(lang){
+      const t = texts[lang] || texts.EN;
+      document.getElementById('tOwner').textContent = t.owner;
+      document.getElementById('tSub').textContent = t.sub;
+      document.getElementById('tOverview').textContent = t.overview;
+      document.getElementById('tMainTitle').textContent = t.mainTitle;
+      document.getElementById('tMainText').textContent = t.mainText;
+      document.getElementById('tStats').textContent = t.stats;
+      document.getElementById('tLive').textContent = t.live;
+      document.getElementById('sApplications').textContent = t.applications;
+      document.getElementById('sSellers').textContent = t.sellers;
+      document.getElementById('sProducts').textContent = t.products;
+      document.getElementById('sRevenue').textContent = t.revenue;
+      document.getElementById('tApplications').textContent = t.applicationsTitle;
+      document.getElementById('tPending').textContent = t.pending;
+      document.getElementById('tDocuments').textContent = t.documents;
+      document.getElementById('tManual').textContent = t.manual;
+      document.getElementById('tSellerProfile').textContent = t.sellerProfile;
+      document.getElementById('tDoc1').textContent = t.doc1;
+      document.getElementById('tDoc2').textContent = t.doc2;
+      document.getElementById('tDoc3').textContent = t.doc3;
+      document.getElementById('tSellerMgmt').textContent = t.sellerMgmt;
+      document.getElementById('tAllSellers').textContent = t.allSellers;
+      document.getElementById('tProductsTitle').textContent = t.productsTitle;
+      document.getElementById('tReviewQueue').textContent = t.reviewQueue;
+      document.getElementById('tOrders').textContent = t.orders;
+      document.getElementById('tTransactions').textContent = t.transactions;
+      document.getElementById('tFinance').textContent = t.finance;
+      document.getElementById('tCommission').textContent = t.commission;
+      document.getElementById('tBasicPlan').textContent = t.basicPlan;
+      document.getElementById('tProPlan').textContent = t.proPlan;
+      document.getElementById('tPayouts').textContent = t.payouts;
+      document.getElementById('nHome').textContent = t.navHome;
+      document.getElementById('nApplications').textContent = t.navApplications;
+      document.getElementById('nSellers').textContent = t.navSellers;
+      document.getElementById('nFinance').textContent = t.navFinance;
+      document.getElementById('statusPending1').textContent = t.pendingText;
+      document.getElementById('statusPending2').textContent = t.pendingText;
+      document.getElementById('statusApproved1').textContent = t.approvedText;
+      document.getElementById('statusApproved2').textContent = t.approvedText;
+      document.getElementById('statusCompleted1').textContent = t.completedText;
+      document.getElementById('statusProcessing1').textContent = t.processingText;
+    }
+
+    setLang('EN');
+  </script>
+</body>
+</html>
